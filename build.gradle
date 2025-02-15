@@ -131,6 +131,7 @@ publishMods {
 			Changelog.OutputType.MARKDOWN
 	)
 
+	/*
 	curseforge {
 		projectId = ""
 		projectSlug = "tinkerers_kubejs_plugin" // Required for discord webhook
@@ -138,19 +139,15 @@ publishMods {
 		minecraftVersions.add(project.minecraft_version)
 		javaVersions.add(JavaVersion.VERSION_17)
 		serverRequired = true
-		requires("fabric-api")
-		requires("cloth-config")
-		optional("modmenu")
 	}
+	*/
 
 	modrinth {
-		projectId = ""
+		projectId = "5U1y0liR"
 		accessToken = providers.environmentVariable("MODRINTH_TOKEN")
 		minecraftVersions.add(project.minecraft_version)
-		requires("fabric-api")
-		requires("cloth-config")
-		requires("cardinal-components-api")
-		optional("modmenu")
+		requires("kubejs")
+		requires("tinkerers-smithing")
 	}
 }
 
