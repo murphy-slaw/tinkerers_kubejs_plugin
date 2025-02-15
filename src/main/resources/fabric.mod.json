@@ -1,44 +1,27 @@
 {
 	"schemaVersion": 1,
-	"id": "template",
+	"id": "tinkerers_kubejs_plugin",
 	"version": "${version}",
-	"name": "Template",
-	"description": "This is an example description! Tell everyone what your mod is about!",
+	"name": "Tinkerer's Smithing KubeJS Plugin",
+	"description": "A tiny little KubeJS plugin that works around Kube's Recipe Manager shenanigans breaking recipes from Tinkerer's Smithing.",
 	"authors": [
-		"Me!"
+		"murphy slaw"
 	],
 	"contact": {
-		"homepage": "https://fabricmc.net/",
-		"sources": "https://github.com/FabricMC/fabric-example-mod"
+		"homepage": "https://github.com/murphy-slaw/tinkerers_kubejs_plugin/",
+		"sources": "https://github.com/murphy-slaw/tinkerers_kubejs_plugin/"
 	},
-	"license": "CC0-1.0",
-	"icon": "assets/template/icon.png",
+	"license": "MIT",
+	"icon": "assets/tinkerers_kubejs_plugin/icon.png",
 	"environment": "*",
-	"entrypoints": {
-		"main": [
-			"net.funkpla.template.Template"
-		],
-		"client": [
-			"net.funkpla.template.TemplateClient"
-		],
-		"fabric-datagen": [
-			"net.funkpla.template.TemplateDataGenerator"
-		]
-	},
+	"entrypoints":{},
 	"mixins": [
-		"template.mixins.json",
-		{
-			"config": "template.client.mixins.json",
-			"environment": "client"
-		}
+		"tinkerers_kubejs_plugin.mixins.json"
 	],
 	"depends": {
 		"fabricloader": ">=0.15.11",
 		"minecraft": "~1.20.1",
-		"java": ">=17",
-		"fabric-api": "*"
-	},
-	"suggests": {
-		"another-mod": "*"
+		"tinkerers_smithing": ">=2.7.0+1.20",
+		"java": ">=17"
 	}
 }

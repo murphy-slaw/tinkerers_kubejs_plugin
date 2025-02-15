@@ -52,15 +52,21 @@ repositories {
 			includeGroup "maven.modrinth"
 		}
 	}
+	maven {
+		// saps.dev Maven (KubeJS and Rhino)
+		url = "https://maven.saps.dev/minecraft"
+		content {
+			includeGroup "dev.latvian.mods"
+		}
+	}
 }
 
 loom {
     splitEnvironmentSourceSets()
 
 	mods {
-		"template" {
+		"tinkerers_kubejs_plugin" {
 			sourceSet sourceSets.main
-			sourceSet sourceSets.client
 		}
 	}
 
@@ -70,18 +76,13 @@ dependencies {
 	// To change the versions see the gradle.properties file
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
 	mappings loom.layered() {
-		officialMojangMappings()
+		mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
 		parchment("org.parchmentmc.data:parchment-1.20.1:2023.09.03@zip")
 	}
 
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
-
-	// Fabric API. This is technically optional, but you probably want it anyway.
-	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-	modApi ("me.shedaniel.cloth:cloth-config-fabric:${project.cloth_config_version}") {
-		exclude(group: "net.fabricmc.fabric-api")
-	}
-	modApi("com.terraformersmc:modmenu:${project.modmenu_version}")
+	modImplementation("dev.latvian.mods:kubejs-fabric:${kubejs_version}")
+	modImplementation("maven.modrinth:tinkerers-smithing:${tinkerers_version}")
 }
 
 processResources {
@@ -132,11 +133,10 @@ publishMods {
 
 	curseforge {
 		projectId = ""
-		projectSlug = "template" // Required for discord webhook
+		projectSlug = "tinkerers_kubejs_plugin" // Required for discord webhook
 		accessToken = providers.environmentVariable("CURSEFORGE_TOKEN")
 		minecraftVersions.add(project.minecraft_version)
 		javaVersions.add(JavaVersion.VERSION_17)
-		clientRequired = true
 		serverRequired = true
 		requires("fabric-api")
 		requires("cloth-config")

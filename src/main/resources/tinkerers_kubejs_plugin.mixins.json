@@ -1,0 +1,10 @@
+{
+	"required": true,
+	"package": "net.funkpla.tinkerers_kubejs_plugin.mixin",
+	"compatibilityLevel": "JAVA_17",
+	"plugin": "net.funkpla.tinkerers_kubejs_plugin.mixin.TinkerersSmithingMixinPlugin",
+	"mixins": [],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}

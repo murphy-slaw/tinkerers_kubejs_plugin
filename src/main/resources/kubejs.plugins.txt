@@ -1,0 +1,1 @@
+net.funkpla.tinkerers_kubejs_plugin.TinkerersSmithingKubeJSPlugin
